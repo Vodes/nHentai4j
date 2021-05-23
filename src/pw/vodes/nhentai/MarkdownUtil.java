@@ -19,7 +19,7 @@ public class MarkdownUtil {
     
     public static String getParodyString(Comic comic) {
     	String s = "";
-    	for(String parody : comic.getCharacters()) {
+    	for(String parody : comic.getParodies()) {
 			s += String.format("[%s](%s), ", parody, Finals.PARODY_PREFIX + parody.trim().replaceAll("[^a-zA-Z0-9]", "-"));
     	}
 		if(s.trim().endsWith(",")) {
