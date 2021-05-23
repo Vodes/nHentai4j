@@ -32,3 +32,4 @@ for(Comic c : NHentai.getComicList(NHentai.parseQuery(new NHentai.CustomTokenize
   System.out.println(c.getPretty());
 }
 ```
+Check [NHentai.java](https://github.com/Vodes/nHentai4j/blob/main/src/pw/vodes/nhentai/NHentai.java) for more info
