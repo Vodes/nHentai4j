@@ -58,7 +58,7 @@ public class Comic {
     			characters.add(tag.name.trim());
     		} else if(tag.type.equalsIgnoreCase("artist")) {
     			authors.add(tag.name.trim());
-    		} else {
+    		} else if(tag.type.equalsIgnoreCase("tag")){
     			tags.add(tag.name.trim());
     		}
 		}
