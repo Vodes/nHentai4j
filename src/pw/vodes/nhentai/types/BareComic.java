@@ -13,7 +13,7 @@ public class BareComic {
 	@SerializedName("num_pages")
 	public int pages;
 	
-	@SerializedName("num_favorties")
+	@SerializedName("num_favorites")
 	public int favourites;
 	
 	/**
@@ -27,38 +27,28 @@ public class BareComic {
 	public Tag[] tags;
     
     public Title title;
-
-	public class Title {
-		
-		String english, japanese, pretty;
-
-		public Title(String english) {
-			this.english = english;
-		}
-
-		@Override
-		public String toString() {
-			return pretty;
-		}
-	}
 	
 	public BareComic setJSONString(String JSON) {
 		this.json = JSON;
 		return this;
 	}
     
-
-    //Comic Tag
     public class Tag {
-        int id, count;
-        String type, name, url;
-
-        public Tag(int id, int count, String type, String name, String url) {
-            this.id = id;
-            this.count = count;
-            this.type = type;
-            this.name = name;
-            this.url = url;
-        }
+        public int id, count;
+        public String type, name, url;
+        
+		@Override
+		public String toString() {
+			return name;
+		}
     }
+    
+	public class Title {
+		public String english, japanese, pretty;
+		
+		@Override
+		public String toString() {
+			return pretty;
+		}
+	}
 }
