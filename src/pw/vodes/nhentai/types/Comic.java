@@ -70,7 +70,14 @@ public class Comic {
 		for (JsonElement ele : array) {
 			JsonObject obj = ele.getAsJsonObject();
 			Page page = new Page();
-			page.setUrl(String.format(Finals.MEDIA_PREFIX_URL + "%s/%s.%s", "" + mediaID, "" + pageID, obj.get("t").getAsString().trim().equalsIgnoreCase("j") ? "jpg" : "png"));
+			String imgType = obj.get("t").getAsString().trim();
+			String extension = "png";
+			if (imgType.equalsIgnoreCase("j")) {
+				extension = "jpg";
+			} else if (imgType.equalsIgnoreCase("g")) {
+				extension = "gif";
+			}
+			page.setUrl(String.format(Finals.MEDIA_PREFIX_URL + "%s/%s.%s", "" + mediaID, "" + pageID, extension));
 			page.setWidth(obj.get("w").getAsInt());
 			page.setHeight(obj.get("h").getAsInt());
 			pages.add(page);
@@ -80,6 +87,7 @@ public class Comic {
 
 	/**
 	 * Gets page starting with 1
+	 * 
 	 * @param page
 	 * @return
 	 */
@@ -93,6 +101,7 @@ public class Comic {
 
 	/**
 	 * "Pretty" Name of the comic (with all the bracket stuff removed)
+	 * 
 	 * @return String
 	 */
 	public String getPretty() {
@@ -101,6 +110,7 @@ public class Comic {
 
 	/**
 	 * English Name of the comic
+	 * 
 	 * @return String
 	 */
 	public String getEnglish() {
@@ -109,6 +119,7 @@ public class Comic {
 
 	/**
 	 * Japanese Name of the comic
+	 * 
 	 * @return String
 	 */
 	public String getJapanese() {
@@ -117,6 +128,7 @@ public class Comic {
 
 	/**
 	 * Comic ID thats also used in the URL
+	 * 
 	 * @return int
 	 */
 	public int getId() {
@@ -125,6 +137,7 @@ public class Comic {
 
 	/**
 	 * Media ID used in the URL for the images
+	 * 
 	 * @return int
 	 */
 	public int getMediaID() {
@@ -133,6 +146,7 @@ public class Comic {
 
 	/**
 	 * Number of pages in the comic
+	 * 
 	 * @return int
 	 */
 	public int getNumPages() {
@@ -141,6 +155,7 @@ public class Comic {
 
 	/**
 	 * How often the comic has been favourized by users
+	 * 
 	 * @return int
 	 */
 	public int getFavourites() {
@@ -149,6 +164,7 @@ public class Comic {
 
 	/**
 	 * Get normal tags in String form
+	 * 
 	 * @return ArrayList<String>
 	 */
 	public ArrayList<String> getTags() {
@@ -157,6 +173,7 @@ public class Comic {
 
 	/**
 	 * Get Authors in String form
+	 * 
 	 * @return ArrayList<String>
 	 */
 	public ArrayList<String> getAuthors() {
@@ -165,6 +182,7 @@ public class Comic {
 
 	/**
 	 * Get Characters in String form
+	 * 
 	 * @return ArrayList<String>
 	 */
 	public ArrayList<String> getCharacters() {
@@ -173,6 +191,7 @@ public class Comic {
 
 	/**
 	 * Get Parodies in String form
+	 * 
 	 * @return ArrayList<String>
 	 */
 	public ArrayList<String> getParodies() {
@@ -181,6 +200,7 @@ public class Comic {
 
 	/**
 	 * Get Languages in String form
+	 * 
 	 * @return ArrayList<String>
 	 */
 	public ArrayList<String> getLanguages() {
@@ -189,6 +209,7 @@ public class Comic {
 
 	/**
 	 * Get the list of pages
+	 * 
 	 * @return ArrayList<Page>
 	 */
 	public ArrayList<Page> getPages() {
